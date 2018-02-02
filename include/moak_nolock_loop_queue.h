@@ -4,8 +4,8 @@
  * */
 #ifndef __MOAK_NOLOCK_LOOP_QUEUE_INCLUDE__
 #define __MOAK_NOLOCK_LOOP_QUEUE_INCLUDE__
-#include "err.h"
-#include "params.h"
+#include "sys/err.h"
+#include "sys/params.h"
 typedef struct{
 	u8 ReadPoint;
 	u8 WritePoint;
