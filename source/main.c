@@ -17,8 +17,6 @@
 #include "moak_nolock_loop_queue.h"
 #include "fifo.h"
 
-#define TEST_FIFO
-//#define TEST_NOLOCK_LOOP_QUEUE
 #define TEST_FIFO_CREATE
 #define TEST_FIFO_PUT
 #define TEST_FIFO_GET
