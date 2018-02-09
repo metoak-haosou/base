@@ -6,17 +6,17 @@ INCLUDE = include
 test:bin/test
 	ln -f bin/test -s test
 	
-fifo:lib/fifo.a
-lib/fifo.a:object/fifo.o
-	${AR} -cr lib/fifo.a object/fifo.o
+fifo:lib/libfifo.a
+lib/libfifo.a:object/fifo.o
+	${AR} -cr lib/libfifo.a object/fifo.o
 
-nolock_loop_queue:lib/nolock_loop_queue.a
-lib/nolock_loop_queue.a:object/moak_nolock_loop_queue.o
-	${AR} -cr lib/nolock_loop_queue.a object/moak_nolock_loop_queue.o
+nolock_loop_queue:lib/libnolock_loop_queue.a
+lib/libnolock_loop_queue.a:object/moak_nolock_loop_queue.o
+	${AR} -cr lib/libnolock_loop_queue.a object/moak_nolock_loop_queue.o
 	
-stack:lib/stack.a
-lib/stack.a:object/stack.o
-	${AR} -cr lib/stack.a object/stack.o
+stack:lib/libstack.a
+lib/libstack.a:object/stack.o
+	${AR} -cr lib/libstack.a object/stack.o
 
 bin/test:object/fifo.o object/moak_nolock_loop_queue.o object/main.o object/stack.o
 	${CC} ${CFLAG} -o $@  $^ -lpthread
