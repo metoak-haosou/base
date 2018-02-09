@@ -1,8 +1,8 @@
 #ifndef __FIFO_INCLUDE__
 #define __FIFO_INCLUDE__
-#include "sys/params.h"
-#include "sys/sys.h"
-#include "sys/err.h"
+#include "params.h"
+#include "sys.h"
+#include "err.h"
 
 typedef struct{
 	void** elements;
