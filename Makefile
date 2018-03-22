@@ -1,7 +1,7 @@
 CC = ${CROSS_COMPILE}gcc -Wformat=0
 AR = ${CROSS_COMPILE}ar
 CLEAN = rm -rf
-CFLAG = -DTEST_NOLOCK_LOOP_QUEUE
+CFLAG = -DTEST_CIRCLE_QUEUE
 INCLUDE = include
 test:bin/test
 	ln -f bin/test -s test
@@ -18,7 +18,7 @@ stack:lib/libstack.a
 lib/libstack.a:object/stack.o
 	${AR} -cr lib/libstack.a object/stack.o
 
-bin/test:object/fifo.o object/moak_nolock_loop_queue.o object/main.o object/stack.o
+bin/test:object/fifo.o object/moak_nolock_loop_queue.o object/circle_queue.o object/main.o object/stack.o
 	${CC} ${CFLAG} -o $@  $^ -lpthread
 
 object/fifo.o:source/fifo.c
@@ -28,6 +28,9 @@ object/moak_nolock_loop_queue.o:source/moak_nolock_loop_queue.c
 	${CC} ${CFLAG} -o $@ -c $^ -I${INCLUDE}
 
 object/stack.o:source/stack.c
+	${CC} ${CFLAG} -o $@ -c $^ -I${INCLUDE}
+	
+object/circle_queue.o:source/circle_queue.c
 	${CC} ${CFLAG} -o $@ -c $^ -I${INCLUDE}
 
 object/main.o:source/main.c
